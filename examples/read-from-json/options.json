@@ -1,0 +1,13 @@
+{
+    "test_key": "json_value",
+    "test_array": [
+        "test_value_1",
+        "test_value_2",
+        "test_value_3"
+    ],
+    "test_map": {
+        "test_key_1": "test_value_1",
+        "test_key_2": "test_value_2",
+        "test_key_3": "test_value_3"
+    }
+}

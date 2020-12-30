@@ -1,7 +1,10 @@
-locals {
-  from_file = lookup({ for k, v in {
-    options = var.read != "" ? yamldecode(file(var.read)) : null
-  } : k => v if v != null }, "options", {})
+terraform {
+  required_version = ">= 0.12"
+}
 
-  options = merge(local.from_file, var.override)
+locals {
+  is_json = length(regexall(".json$", var.read_from)) > 0
+  content = var.read_from != "" ? file(var.read_from) : ""
+  parsed  = local.is_json ? jsondecode(local.content) : yamldecode(local.content)
+  merged  = merge(local.parsed, var.override)
 }

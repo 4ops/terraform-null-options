@@ -1,11 +1,13 @@
-variable override {
+variable "override" {
   type        = any
   default     = {}
-  description = "Options map"
+
+  description = "Overrides options from YAML."
 }
 
-variable read {
+variable "read_from" {
   type        = string
   default     = ""
-  description = "Path to options file (only .yaml format supported)"
+
+  description = "Path to options file (only `.yaml` format supported)."
 }
